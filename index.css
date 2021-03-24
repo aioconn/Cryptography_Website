@@ -1,0 +1,62 @@
+body{
+    margin: 0;
+}
+
+p{
+    margin: 0;
+}
+
+
+#name_div{
+    background-color: #3B5249;
+    color: #181D27;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'New Tegomin', serif;
+}
+
+#name_div2{
+    position: absolute;
+    left: 0;
+    padding-left: 10px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#tab_header{
+    background-color: #3B5249;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+
+.tabs_to_pages{
+    height: 35px;
+    width: 170px;
+    border-radius: 8px;
+    background-color: #519872;
+    color: #181D27;
+    margin-bottom: 4px;
+    margin-right: 3px;
+    margin-left: 3px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    font-family: 'New Tegomin', serif;
+}
+
+.tabs_to_pages:hover{
+    background-color: #95C6AC;
+}
+
+#caesar_page{
+    background-color: #CBD6C2;
+    display: flex;
+    min-height: 2000px;
+}
+
+
