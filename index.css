@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    height: 100%
 }
 
 p{
@@ -47,16 +48,22 @@ p{
     font-weight: bold;
     border: none;
     font-family: 'New Tegomin', serif;
+    outline:none;
+
 }
 
 .tabs_to_pages:hover{
     background-color: #95C6AC;
 }
 
-#caesar_page{
+.tabs_to_pages.active{
+    background-color: #95C6AC;
+}
+
+.tab_content{
+    display: none;
+    height: 86.4vh;
     background-color: #CBD6C2;
-    display: flex;
-    min-height: 2000px;
 }
 
 

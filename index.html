@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
+
+    <script src=index.js></script>
 </head>
 <body>
 <div id="name_div">
@@ -13,14 +15,42 @@
     <h1>Cryptography Tool</h1>
 </div>
 <div id="tab_header">
-    <button class="tabs_to_pages">Caesar Cipher</button>
-    <button class="tabs_to_pages">Shift Cipher</button>
-    <button class="tabs_to_pages">Keyword Cipher</button>
-    <button class="tabs_to_pages">Vigenere Cipher</button>
-    <button class="tabs_to_pages">Anagram Cipher</button>
-    <button class="tabs_to_pages">Columnar Cipher</button>
+    <button class="tabs_to_pages" onclick="openTab(event, 'caesar_page')" id="defaultOpen">Caesar Cipher</button>
+    <button class="tabs_to_pages" onclick="openTab(event, 'shift_page')">Shift Cipher</button>
+    <button class="tabs_to_pages" onclick="openTab(event, 'keyword_page')">Keyword Cipher</button>
+    <button class="tabs_to_pages" onclick="openTab(event, 'vigenere_page')">Vigenere Cipher</button>
+    <button class="tabs_to_pages" onclick="openTab(event, 'anagram_page')">Anagram Cipher</button>
+    <button class="tabs_to_pages" onclick="openTab(event, 'columnar_page')">Columnar Cipher</button>
 </div>
 
-<div id="caesar_page"></div>
+<div id="caesar_page" class="tab_content">
+    Caesar
+</div>
+
+<script>
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+</script>
+
+<div id="shift_page" class="tab_content">
+    shift
+</div>
+
+<div id="keyword_page" class="tab_content">
+    keyword
+</div>
+
+<div id="vigenere_page" class="tab_content">
+    vigenere
+</div>
+
+<div id="anagram_page" class="tab_content">
+    anagram
+</div>
+
+<div id="columnar_page" class="tab_content">
+    columnar
+</div>
+
 </body>
 </html>
