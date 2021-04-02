@@ -66,4 +66,31 @@ p{
     background-color: #CBD6C2;
 }
 
+#caesar_encrypt_decrypt > * {
+    margin: 3px 3px 3px 3px;
+    height: 40px;
+}
+
+#caesar_encrypt_decrypt > button {
+    width: 76px
+}
+
+#keyword_encrypt_decrypt > * {
+    margin: 3px 3px 3px 3px;
+    height: 40px;
+}
+
+#keyword_encrypt_decrypt > button {
+    width: 76px
+}
+
+.IC_div > * {
+    margin: 12px 12px 12px 12px;
+    vertical-align: middle;
+}
+
+.TB_div{
+    justify-content: space-evenly;
+    align-items: center;
+}
 

@@ -6,10 +6,9 @@
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
-
     <script src=index.js></script>
 </head>
-<body>
+<body style="background-color: #CBD6C2">
 <div id="name_div">
     <div id="name_div2">Created by:<br>Jarret Whitehouse<br>Aiden O'Connor</div>
     <h1>Cryptography Tool</h1>
@@ -23,21 +22,132 @@
     <button class="tabs_to_pages" onclick="openTab(event, 'columnar_page')">Columnar Cipher</button>
 </div>
 
-<div id="caesar_page" class="tab_content">
-    Caesar
+<div id="caesar_page" class="tab_content" style="display: flex; justify-content: space-evenly">
+    <div id="caesar_output_input" style="margin-bottom: 10px; margin-top: 10px;">
+        <h1 style="text-align: center; margin: 0 0 6px;">Input Area</h1>
+        <textarea id="caesar_input_box" cols="60" rows=10 placeholder="Input" style="resize: none; height: 250px"></textarea>
+        <h1 style="text-align: center; margin: 0 0 6px;">Output Area</h1>
+        <textarea readonly id="caesar_output_box" cols="60" rows="10" placeholder="Output" style="resize: none; height: 250px"></textarea>
+        <div id="caesar_encrypt_decrypt" style="display: flex; justify-content: center;">
+            <button >Encrypt</button>
+            <input type="text" placeholder="Enter a shift key: 1,2...25,26" style="padding: 0;">
+            <button >Decrypt</button>
+        </div>
+    </div>
+    <div class="basic_tools" style="margin-bottom: 10px; margin-top: 10px;">
+        <h1 style="text-align: center; margin: 0 0 6px; text-decoration: underline">Useful Tools</h1>
+        <div class="IC_div" style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Index of Coincidence</h3>
+            <input type="text" placeholder="Amount of Segments" style="height: 34px">
+            <button style="width: 100px; height: 40px">Get IC</button>
+            <textarea readonly id="caesar_ic_output" cols="40" rows="6" style="resize: none;"></textarea>
+        </div>
+        <div style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Frequency Analysis</h3>
+            <div style="display: flex">
+            <div style="margin: 6px 6px 6px 6px">
+                <textarea readonly id="caesar_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
+                <br>
+                <button>Single</button>
+                <button>Double</button>
+                <button>Triple</button>
+            </div>
+            <div>Graph Area</div>
+            </div>
+        </div>
+        <div style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Text Blocker</h3>
+            <div class="TB_div" style="margin: 10px; display: flex">
+            <input type="text" placeholder="Enter a block size:1,2,3...etc" style="height: 25px">
+            <button style="height: 31px; width: 177px">Block Text</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
-    // Get the element with id="defaultOpen" and click on it
     document.getElementById("defaultOpen").click();
 </script>
 
-<div id="shift_page" class="tab_content">
-    shift
+<div id="shift_page" class="tab_content" style="display: flex; justify-content: space-evenly">
+    <div id="shift_output_input" style="margin-bottom: 10px; margin-top: 10px;">
+        <h1 style="text-align: center; margin: 0 0 6px;">Input Area</h1>
+        <textarea id="shift_input_box" cols="60" rows=10 placeholder="Input" style="resize: none; height: 250px"></textarea>
+    </div>
+    <div id="basic_tools" style="margin-bottom: 10px; margin-top: 10px;">
+        <h1 style="text-align: center; margin: 0 0 6px; text-decoration: underline">Useful Tools</h1>
+        <div class="IC_div" style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Index of Coincidence</h3>
+            <input type="text" placeholder="Amount of Segments" style="height: 34px">
+            <button style="width: 100px; height: 40px">Get IC</button>
+            <textarea readonly id="shift_ic_output" cols="40" rows="6" style="resize: none;"></textarea>
+        </div>
+        <div style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Frequency Analysis</h3>
+            <div style="display: flex">
+                <div style="margin: 6px 6px 6px 6px">
+                    <textarea readonly id="shift_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
+                    <br>
+                    <button>Single</button>
+                    <button>Double</button>
+                    <button>Triple</button>
+                </div>
+                <div>Graph Area</div>
+            </div>
+        </div>
+        <div style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Text Blocker</h3>
+            <div class="TB_div" style="margin: 10px; display: flex">
+                <input type="text" placeholder="Enter a block size:1,2,3...etc" style="height: 25px">
+                <button style="height: 31px; width: 177px">Block Text</button>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div id="keyword_page" class="tab_content">
-    keyword
+<div id="keyword_page" class="tab_content" style="display: flex; justify-content: space-evenly">
+    <div id="keyword_output_input" style="margin-bottom: 10px; margin-top: 10px;">
+        <h1 style="text-align: center; margin: 0 0 6px;">Input Area</h1>
+        <textarea id="keyword_input_box" cols="60" rows=10 placeholder="Input" style="resize: none; height: 250px"></textarea>
+        <h1 style="text-align: center; margin: 0 0 6px;">Output Area</h1>
+        <textarea readonly id="keyword_output_box" cols="60" rows="10" placeholder="Output" style="resize: none; height: 250px"></textarea>
+        <div id="keyword_encrypt_decrypt" style="display: flex; justify-content: center;">
+            <button >Encrypt</button>
+            <button >Decrypt</button>
+        </div>
+    </div>
+    <div class="basic_tools" style="margin-bottom: 10px; margin-top: 10px;">
+        <h1 style="text-align: center; margin: 0 0 6px; text-decoration: underline">Useful Tools</h1>
+        <div class="IC_div" style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Index of Coincidence</h3>
+            <input type="text" placeholder="Amount of Segments" style="height: 34px">
+            <button style="width: 100px; height: 40px">Get IC</button>
+            <textarea readonly id="keyword_ic_output" cols="40" rows="6" style="resize: none;"></textarea>
+        </div>
+        <div style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Frequency Analysis</h3>
+            <div style="display: flex">
+                <div style="margin: 6px 6px 6px 6px">
+                    <textarea readonly id="keyword_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
+                    <br>
+                    <button>Single</button>
+                    <button>Double</button>
+                    <button>Triple</button>
+                </div>
+                <div>Graph Area</div>
+            </div>
+        </div>
+        <div style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Text Blocker</h3>
+            <div class="TB_div" style="margin: 10px; display: flex">
+                <input type="text" placeholder="Enter a block size:1,2,3...etc" style="height: 25px">
+                <button style="height: 31px; width: 177px">Block Text</button>
+            </div>
+        </div>
+
+    </div>
+
+
 </div>
 
 <div id="vigenere_page" class="tab_content">
