@@ -49,7 +49,6 @@ function main() {
     }
 
 
-
     function sortFrequencies(frequencyList){
 
         let i = 1;
@@ -111,5 +110,7 @@ function main() {
         return output;
         
     }
+
+    
 
 }
