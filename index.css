@@ -84,6 +84,33 @@ p{
     width: 76px
 }
 
+#vigenere_encrypt_decrypt > * {
+    margin: 3px 3px 3px 3px;
+    height: 40px;
+}
+
+#vigenere_encrypt_decrypt > button {
+    width: 76px
+}
+
+#anagram_encrypt_decrypt > * {
+    margin: 3px 3px 3px 3px;
+    height: 40px;
+}
+
+#anagram_encrypt_decrypt > button {
+    width: 76px
+}
+
+#columnar_encrypt_decrypt > * {
+    margin: 3px 3px 3px 3px;
+    height: 40px;
+}
+
+#columnar_encrypt_decrypt > button {
+    width: 76px
+}
+
 .IC_div > * {
     margin: 12px 12px 12px 12px;
     vertical-align: middle;

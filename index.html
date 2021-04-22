@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
     <script src=index.js></script>
+    <script src=cryptoWeb_caesar.js></script>
+    <script src=tools.js></script>
 </head>
 <body style="background-color: #CBD6C2">
 <div id="name_div">
@@ -144,22 +146,133 @@
                 <button style="height: 31px; width: 177px">Block Text</button>
             </div>
         </div>
-
     </div>
-
-
 </div>
 
-<div id="vigenere_page" class="tab_content">
-    vigenere
+<div id="vigenere_page" class="tab_content" style="display: none; justify-content: space-evenly">
+    <div id="vigenere_output_input" style="margin-bottom: 10px; margin-top: 10px;">
+        <h1 style="text-align: center; margin: 0 0 6px;">Input Area</h1>
+        <textarea id="vigenere_input_box" cols="60" rows=10 placeholder="Input" style="resize: none; height: 250px"></textarea>
+        <h1 style="text-align: center; margin: 0 0 6px;">Output Area</h1>
+        <textarea readonly id="vigenere_output_box" cols="60" rows="10" placeholder="Output" style="resize: none; height: 250px"></textarea>
+        <div id="vigenere_encrypt_decrypt" style="display: flex; justify-content: center;">
+            <button >Encrypt</button>
+            <button >Decrypt</button>
+        </div>
+    </div>
+    <div class="basic_tools" style="margin-bottom: 10px; margin-top: 10px;">
+        <h1 style="text-align: center; margin: 0 0 6px; text-decoration: underline">Useful Tools</h1>
+        <div class="IC_div" style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Index of Coincidence</h3>
+            <input type="text" placeholder="Amount of Segments" style="height: 34px">
+            <button style="width: 100px; height: 40px">Get IC</button>
+            <textarea readonly id="vigenere_ic_output" cols="40" rows="6" style="resize: none;"></textarea>
+        </div>
+        <div style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Frequency Analysis</h3>
+            <div style="display: flex">
+                <div style="margin: 6px 6px 6px 6px">
+                    <textarea readonly id="vigenere_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
+                    <br>
+                    <button>Single</button>
+                    <button>Double</button>
+                    <button>Triple</button>
+                </div>
+                <div>Graph Area</div>
+            </div>
+        </div>
+        <div style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Text Blocker</h3>
+            <div class="TB_div" style="margin: 10px; display: flex">
+                <input type="text" placeholder="Enter a block size:1,2,3...etc" style="height: 25px">
+                <button style="height: 31px; width: 177px">Block Text</button>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div id="anagram_page" class="tab_content">
-    anagram
+<div id="anagram_page" class="tab_content" style="display: none; justify-content: space-evenly">
+    <div id="anagram_output_input" style="margin-bottom: 10px; margin-top: 10px;">
+        <h1 style="text-align: center; margin: 0 0 6px;">Input Area</h1>
+        <textarea id="anagram_input_box" cols="60" rows=10 placeholder="Input" style="resize: none; height: 250px"></textarea>
+        <h1 style="text-align: center; margin: 0 0 6px;">Output Area</h1>
+        <textarea readonly id="anagram_output_box" cols="60" rows="10" placeholder="Output" style="resize: none; height: 250px"></textarea>
+        <div id="anagram_encrypt_decrypt" style="display: flex; justify-content: center;">
+            <button >Encrypt</button>
+            <button >Decrypt</button>
+        </div>
+    </div>
+    <div class="basic_tools" style="margin-bottom: 10px; margin-top: 10px;">
+        <h1 style="text-align: center; margin: 0 0 6px; text-decoration: underline">Useful Tools</h1>
+        <div class="IC_div" style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Index of Coincidence</h3>
+            <input type="text" placeholder="Amount of Segments" style="height: 34px">
+            <button style="width: 100px; height: 40px">Get IC</button>
+            <textarea readonly id="anagram_ic_output" cols="40" rows="6" style="resize: none;"></textarea>
+        </div>
+        <div style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Frequency Analysis</h3>
+            <div style="display: flex">
+                <div style="margin: 6px 6px 6px 6px">
+                    <textarea readonly id="anagram_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
+                    <br>
+                    <button>Single</button>
+                    <button>Double</button>
+                    <button>Triple</button>
+                </div>
+                <div>Graph Area</div>
+            </div>
+        </div>
+        <div style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Text Blocker</h3>
+            <div class="TB_div" style="margin: 10px; display: flex">
+                <input type="text" placeholder="Enter a block size:1,2,3...etc" style="height: 25px">
+                <button style="height: 31px; width: 177px">Block Text</button>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div id="columnar_page" class="tab_content">
-    columnar
+<div id="columnar_page" class="tab_content" style="display: none; justify-content: space-evenly">
+    <div id="columnar_output_input" style="margin-bottom: 10px; margin-top: 10px;">
+        <h1 style="text-align: center; margin: 0 0 6px;">Input Area</h1>
+        <textarea id="columnar_input_box" cols="60" rows=10 placeholder="Input" style="resize: none; height: 250px"></textarea>
+        <h1 style="text-align: center; margin: 0 0 6px;">Output Area</h1>
+        <textarea readonly id="columnar_output_box" cols="60" rows="10" placeholder="Output" style="resize: none; height: 250px"></textarea>
+        <div id="columnar_encrypt_decrypt" style="display: flex; justify-content: center;">
+            <button >Encrypt</button>
+            <button >Decrypt</button>
+        </div>
+    </div>
+    <div class="basic_tools" style="margin-bottom: 10px; margin-top: 10px;">
+        <h1 style="text-align: center; margin: 0 0 6px; text-decoration: underline">Useful Tools</h1>
+        <div class="IC_div" style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Index of Coincidence</h3>
+            <input type="text" placeholder="Amount of Segments" style="height: 34px">
+            <button style="width: 100px; height: 40px">Get IC</button>
+            <textarea readonly id="columnar_ic_output" cols="40" rows="6" style="resize: none;"></textarea>
+        </div>
+        <div style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Frequency Analysis</h3>
+            <div style="display: flex">
+                <div style="margin: 6px 6px 6px 6px">
+                    <textarea readonly id="columnar_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
+                    <br>
+                    <button>Single</button>
+                    <button>Double</button>
+                    <button>Triple</button>
+                </div>
+                <div>Graph Area</div>
+            </div>
+        </div>
+        <div style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Text Blocker</h3>
+            <div class="TB_div" style="margin: 10px; display: flex">
+                <input type="text" placeholder="Enter a block size:1,2,3...etc" style="height: 25px">
+                <button style="height: 31px; width: 177px">Block Text</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>
