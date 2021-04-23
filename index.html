@@ -32,7 +32,7 @@
         <textarea readonly id="caesar_output_box" cols="100" rows="10" placeholder="Output" style="resize: none; height: 250px"></textarea>
         <div id="caesar_encrypt_decrypt" style="display: flex; justify-content: center;">
             <button >Encrypt</button>
-            <input type="text" placeholder="Enter a shift key: 1,2...25,26" style="padding: 0;">
+            <input type="text" placeholder="Enter a shift key: 1,2...25,26" style="padding: 0; height: 37px">
             <button >Decrypt</button>
         </div>
     </div>
@@ -46,15 +46,18 @@
         </div>
         <div style="border: 1px solid black">
             <h3 style="text-align: center; margin: 0 0 6px;">Frequency Analysis</h3>
-            <div style="display: flex">
-            <div style="margin: 6px 6px 6px 6px">
-                <textarea readonly id="caesar_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
-                <br>
-                <button>Single</button>
-                <button>Double</button>
-                <button>Triple</button>
+            <div style="display: flex; justify-content: center">
+                <button style="width: 70px; height: 30px; font-weight: bold; font-size: medium;">Run</button>
             </div>
-            <div>Graph Area</div>
+            <div style="display: flex">
+                <div style="margin: 6px 6px 6px 6px">
+                    <textarea readonly id="caesar_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
+                    <br>
+                    <button>Single</button>
+                    <button>Double</button>
+                    <button>Triple</button>
+                </div>
+                <div>Graph Area</div>
             </div>
         </div>
         <div style="border: 1px solid black">
@@ -90,6 +93,9 @@
         </div>
         <div style="border: 1px solid black">
             <h3 style="text-align: center; margin: 0 0 6px;">Frequency Analysis</h3>
+            <div style="display: flex; justify-content: center">
+                <button style="width: 70px; height: 30px; font-weight: bold; font-size: medium;">Run</button>
+            </div>
             <div style="display: flex">
                 <div style="margin: 6px 6px 6px 6px">
                     <textarea readonly id="shift_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
@@ -138,6 +144,9 @@
         </div>
         <div style="border: 1px solid black">
             <h3 style="text-align: center; margin: 0 0 6px;">Frequency Analysis</h3>
+            <div style="display: flex; justify-content: center">
+                <button style="width: 70px; height: 30px; font-weight: bold; font-size: medium;">Run</button>
+            </div>
             <div style="display: flex">
                 <div style="margin: 6px 6px 6px 6px">
                     <textarea readonly id="keyword_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
@@ -159,7 +168,7 @@
     </div>
 </div>
 
-<div id="vigenere_page" class="tab_content" style="display: none; justify-content: space-evenly">
+<div id="vigenere_page" class="tab_content" style="display: none; justify-content: center">
     <div id="vigenere_output_input" style="margin-bottom: 10px; margin-top: 10px;">
         <h1 style="text-align: center; margin: 0 0 6px;">Input Area</h1>
         <textarea id="vigenere_input_box" cols="60" rows=10 placeholder="Input" style="resize: none; height: 250px"></textarea>
@@ -167,7 +176,7 @@
         <textarea readonly id="vigenere_output_box" cols="60" rows="10" placeholder="Output" style="resize: none; height: 250px"></textarea>
         <div id="vigenere_encrypt_decrypt" style="display: flex; justify-content: center;">
             <button >Encrypt</button>
-            <input type="text" placeholder="Vigenere Key" style="padding: 0; text-align: center; font-size: medium">
+            <input type="text" placeholder="Vigenere Key" style="padding: 0; text-align: center; font-size: medium; height: 37px">
             <button >Decrypt</button>
         </div>
     </div>
@@ -181,6 +190,9 @@
         </div>
         <div style="border: 1px solid black">
             <h3 style="text-align: center; margin: 0 0 6px;">Frequency Analysis</h3>
+            <div style="display: flex; justify-content: center">
+                <button style="width: 70px; height: 30px; font-weight: bold; font-size: medium;">Run</button>
+            </div>
             <div style="display: flex">
                 <div style="margin: 6px 6px 6px 6px">
                     <textarea readonly id="vigenere_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
@@ -192,17 +204,52 @@
                 <div>Graph Area</div>
             </div>
         </div>
-        <div style="border: 1px solid black">
+        <div style="border: 1px solid black; height: 144px">
             <h3 style="text-align: center; margin: 0 0 6px;">Text Blocker</h3>
             <div class="TB_div" style="margin: 10px; display: flex">
                 <input type="text" placeholder="Enter a block size:1,2,3...etc" style="height: 25px">
                 <button style="height: 31px; width: 177px">Block Text</button>
             </div>
         </div>
+        <div class="IC_div">
+            <h3 style="text-align: center; margin: 0 0 6px;">Low Frequency Analysis</h3>
+            <div class="LFAnalysis" style="display: flex">
+                <input type="text" placeholder="Key Length" style="height: 34px">
+                <button style="width: 100px; height: 40px">Run LF Analysis</button>
+            </div>
+            <div style="position: absolute; left: 27%">
+                <textarea readonly id="LF_left_output" cols="100" rows="40" style="resize: none;"></textarea>
+                <textarea readonly id="LF_right_output" cols="15" rows="40" style="resize: none;"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="advanced_tools" style="margin-bottom: 10px; margin-top: 10px;">
+        <h1 style="text-align: center; margin: 0 0 6px; text-decoration: underline">Advanced Tools</h1>
+        <div class="IC_div" style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Kasiski Method</h3>
+            <div class="kasiskiAnalysis" style="display: flex">
+                <input type="text" placeholder="String Size EX:3" style="height: 34px">
+                <button style="width: 100px; height: 40px">Run</button>
+            </div>
+            <div>
+                <textarea readonly id="kasiski_left_output" cols="30" rows="15" style="resize: none;"></textarea>
+                <textarea readonly id="kasiski_right_output" cols="30" rows="15" style="resize: none;"></textarea>
+            </div>
+        </div>
+        <div class="IC_div" style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Segment Analysis</h3>
+            <div class="segmentAnalysis" style="display: flex">
+                <input type="text" placeholder="Number of Segments" style="height: 34px">
+                <button style="width: 100px; height: 40px">Run Segments</button>
+            </div>
+            <div>
+                <textarea readonly id="segment_output" cols="64" rows="15" style="resize: none;"></textarea>
+            </div>
+        </div>
     </div>
 </div>
 
-<div id="anagram_page" class="tab_content" style="display: none; justify-content: space-evenly">
+<div id="anagram_page" class="tab_content" style="display: none; justify-content: center">
     <div id="anagram_output_input" style="margin-bottom: 10px; margin-top: 10px;">
         <h1 style="text-align: center; margin: 0 0 6px;">Input Area</h1>
         <textarea id="anagram_input_box" cols="60" rows=10 placeholder="Input" style="resize: none; height: 250px"></textarea>
@@ -210,7 +257,7 @@
         <textarea readonly id="anagram_output_box" cols="60" rows="10" placeholder="Output" style="resize: none; height: 250px"></textarea>
         <div id="anagram_encrypt_decrypt" style="display: flex; justify-content: center;">
             <button >Encrypt</button>
-            <input type="text" placeholder="Anagram Key (EX: [1,3,0,2])" style="height: 35px">
+            <input type="text" placeholder="Anagram Key (EX: 1,3,0,2)" style="height: 35px">
             <button >Decrypt</button>
         </div>
     </div>
@@ -224,6 +271,9 @@
         </div>
         <div style="border: 1px solid black">
             <h3 style="text-align: center; margin: 0 0 6px;">Frequency Analysis</h3>
+            <div style="display: flex; justify-content: center">
+                <button style="width: 70px; height: 30px; font-weight: bold; font-size: medium;">Run</button>
+            </div>
             <div style="display: flex">
                 <div style="margin: 6px 6px 6px 6px">
                     <textarea readonly id="anagram_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
@@ -243,6 +293,17 @@
             </div>
         </div>
     </div>
+    <div class="advanced_tools" style="margin-bottom: 10px; margin-top: 10px;">
+        <h1 style="text-align: center; margin: 0 0 6px; text-decoration: underline">Advanced Tools</h1>
+        <div class="IC_div" style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Factoring Tool</h3>
+            <div class="textlength_analysis" style="display: flex">
+                <button style="width: 100px; height: 37px">Factor</button>
+                <textarea readonly id="textLength" cols="10" rows="1" style="resize: none; text-align: center; font-size: large; font-weight: bold">Text Length</textarea>
+            </div>
+            <div style="height: 300px; width: 450px">Graph Area</div>
+        </div>
+    </div>
 </div>
 
 <div id="columnar_page" class="tab_content" style="display: none; justify-content: space-evenly">
@@ -253,7 +314,7 @@
         <textarea readonly id="columnar_output_box" cols="60" rows="10" placeholder="Output" style="resize: none; height: 250px"></textarea>
         <div id="columnar_encrypt_decrypt" style="display: flex; justify-content: center;">
             <button>Encrypt</button>
-            <input type="text" placeholder="Number of Columns" style="padding: 0; text-align: center; font-size: medium">
+            <input type="text" placeholder="Number of Columns" style="padding: 0; text-align: center; font-size: medium; height: 37px">
             <button>Decrypt</button>
         </div>
     </div>
@@ -267,6 +328,9 @@
         </div>
         <div style="border: 1px solid black">
             <h3 style="text-align: center; margin: 0 0 6px;">Frequency Analysis</h3>
+            <div style="display: flex; justify-content: center">
+                <button style="width: 70px; height: 30px; font-weight: bold; font-size: medium;">Run</button>
+            </div>
             <div style="display: flex">
                 <div style="margin: 6px 6px 6px 6px">
                     <textarea readonly id="columnar_FA_output" cols="20" rows="20" style="resize: none;"></textarea>

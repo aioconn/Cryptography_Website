@@ -126,7 +126,9 @@ p{
 }
 
 #columnar_encrypt_decrypt > button {
-    width: 76px
+    width: 76px;
+    font-size: medium;
+    font-weight: bold;
 }
 
 .IC_div > * {
@@ -142,7 +144,6 @@ p{
 .TB_div{
     justify-content: space-evenly;
     align-items: center;
-
 }
 
 .TB_div > button {
@@ -150,4 +151,22 @@ p{
     font-size: medium;
 }
 
+.segmentAnalysis{
+    justify-content: center;
+    align-items: center;
+}
 
+.kasiskiAnalysis{
+    justify-content: center;
+    align-items: center;
+}
+
+.LFAnalysis{
+    justify-content: center;
+    align-items: center;
+}
+
+.textlength_analysis{
+    justify-content: center;
+    align-items: center;
+}
