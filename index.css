@@ -72,7 +72,20 @@ p{
 }
 
 #caesar_encrypt_decrypt > button {
-    width: 76px
+    width: 76px;
+    font-size: medium;
+    font-weight: bold;
+}
+
+#shift_encrypt_decrypt > * {
+    margin: 3px 3px 3px 3px;
+    height: 40px;
+}
+
+#shift_encrypt_decrypt > button {
+    width: 90px;
+    font-size: medium;
+    font-weight: bold;
 }
 
 #keyword_encrypt_decrypt > * {
@@ -81,7 +94,8 @@ p{
 }
 
 #keyword_encrypt_decrypt > button {
-    width: 76px
+    width: 76px;
+    font-weight: bold;
 }
 
 #vigenere_encrypt_decrypt > * {
@@ -90,7 +104,9 @@ p{
 }
 
 #vigenere_encrypt_decrypt > button {
-    width: 76px
+    width: 76px;
+    font-size: medium;
+    font-weight: bold;
 }
 
 #anagram_encrypt_decrypt > * {
@@ -99,7 +115,9 @@ p{
 }
 
 #anagram_encrypt_decrypt > button {
-    width: 76px
+    width: 76px;
+    font-size: medium;
+    font-weight: bold;
 }
 
 #columnar_encrypt_decrypt > * {
@@ -116,8 +134,20 @@ p{
     vertical-align: middle;
 }
 
+.IC_div > button {
+    font-weight: bold;
+    font-size: medium;
+}
+
 .TB_div{
     justify-content: space-evenly;
     align-items: center;
+
 }
+
+.TB_div > button {
+    font-weight: bold;
+    font-size: medium;
+}
+
 
