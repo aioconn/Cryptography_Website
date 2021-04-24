@@ -7,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
     <script src=index.js></script>
-    <script src=cryptoWeb_caesar.js></script>
     <script src=tools.js></script>
 </head>
 <body style="background-color: #CBD6C2">
@@ -31,9 +30,9 @@
         <h1 style="text-align: center; margin: 0 0 6px;">Output Area</h1>
         <textarea readonly id="caesar_output_box" cols="100" rows="10" placeholder="Output" style="resize: none; height: 250px"></textarea>
         <div id="caesar_encrypt_decrypt" style="display: flex; justify-content: center;">
-            <button >Encrypt</button>
-            <input type="text" placeholder="Enter a shift key: 1,2...25,26" style="padding: 0; height: 37px">
-            <button >Decrypt</button>
+            <button id="caesarEncryptbtn" onclick="caesarEncrypt()">Encrypt</button>
+            <input id="shiftKeyInput" type="text" placeholder="Enter a shift key: 1,2...25,26" style="padding: 0; height: 37px">
+            <button id="caesarDecryptbtn" onclick="caesarDecrypt()">Decrypt</button>
         </div>
     </div>
     <div class="basic_tools" style="margin-bottom: 10px; margin-top: 10px;">
@@ -351,6 +350,6 @@
         </div>
     </div>
 </div>
-
+<script src=cryptoWeb_caesar.js></script>
 </body>
 </html>
