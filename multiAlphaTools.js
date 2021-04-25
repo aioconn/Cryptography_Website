@@ -201,6 +201,21 @@ function main(){
         
     }//end segmentMessage
 
+    //bringing from old project as reference but probably just going to use .toLowerCase() when possible
+    function removeNonLowercase(str){
+
+        var output = "";
+
+        for(var i = 0; i < str.length; i++){
+            if(str.charCodeAt(i) >= 97 && str.charCodeAt(i) <= 122){
+                output += str.charAt(i);
+            }
+        }
+
+        return output;
+
+    }
+
     function indexOfCoincidence(message){
 	
         message = message.toLowerCase();
