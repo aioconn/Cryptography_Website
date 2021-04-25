@@ -39,8 +39,8 @@
         <h1 style="text-align: center; margin: 0 0 6px; text-decoration: underline">Useful Tools</h1>
         <div class="IC_div" style="border: 1px solid black">
             <h3 style="text-align: center; margin: 0 0 6px;">Index of Coincidence</h3>
-            <input type="text" placeholder="Amount of Segments" style="height: 34px">
-            <button style="width: 100px; height: 40px">Get IC</button>
+            <input id="caesar_ic_input" type="text" placeholder="Amount of Segments" style="height: 34px">
+            <button onclick="getCaesarIC()" style="width: 100px; height: 40px">Get IC</button>
             <textarea readonly id="caesar_ic_output" cols="40" rows="6" style="resize: none;"></textarea>
         </div>
         <div style="border: 1px solid black">
@@ -75,31 +75,6 @@
         </div>
         <textarea readonly id="shift_output_box" cols="100" rows="10" placeholder="Output" style="resize: none; height: 300px"></textarea>
     </div>
-    <div id="basic_tools" style="margin-bottom: 10px; margin-top: 10px;">
-        <h1 style="text-align: center; margin: 0 0 6px; text-decoration: underline">Useful Tools</h1>
-        <div class="IC_div" style="border: 1px solid black">
-            <h3 style="text-align: center; margin: 0 0 6px;">Index of Coincidence</h3>
-            <input type="text" placeholder="Amount of Segments" style="height: 34px">
-            <button style="width: 100px; height: 40px">Get IC</button>
-            <textarea readonly id="shift_ic_output" cols="40" rows="6" style="resize: none;"></textarea>
-        </div>
-        <div style="border: 1px solid black">
-            <h3 style="text-align: center; margin: 0 0 6px;">Frequency Analysis</h3>
-            <div style="display: flex; justify-content: center">
-                <button style="width: 70px; height: 30px; font-weight: bold; font-size: medium;">Run</button>
-            </div>
-            <div style="display: flex">
-                <div style="margin: 6px 6px 6px 6px">
-                    <textarea readonly id="shift_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
-                    <br>
-                    <button>Single</button>
-                    <button>Double</button>
-                    <button>Triple</button>
-                </div>
-                <div>Graph Area</div>
-            </div>
-        </div>
-    </div>
 </div>
 
 <div id="keyword_page" class="tab_content" style="display: none; justify-content: space-evenly">
@@ -123,8 +98,8 @@
         <h1 style="text-align: center; margin: 0 0 6px; text-decoration: underline">Useful Tools</h1>
         <div class="IC_div" style="border: 1px solid black">
             <h3 style="text-align: center; margin: 0 0 6px;">Index of Coincidence</h3>
-            <input type="text" placeholder="Amount of Segments" style="height: 34px">
-            <button style="width: 100px; height: 40px">Get IC</button>
+            <input id="keyword_ic_input" type="text" placeholder="Amount of Segments" style="height: 34px">
+            <button onclick="getKeywordIC()" style="width: 100px; height: 40px">Get IC</button>
             <textarea readonly id="keyword_ic_output" cols="40" rows="6" style="resize: none;"></textarea>
         </div>
         <div style="border: 1px solid black">
@@ -162,8 +137,8 @@
         <h1 style="text-align: center; margin: 0 0 6px; text-decoration: underline">Useful Tools</h1>
         <div class="IC_div" style="border: 1px solid black">
             <h3 style="text-align: center; margin: 0 0 6px;">Index of Coincidence</h3>
-            <input type="text" placeholder="Amount of Segments" style="height: 34px">
-            <button style="width: 100px; height: 40px">Get IC</button>
+            <input id="vigenere_ic_input" type="text" placeholder="Amount of Segments" style="height: 34px">
+            <button onclick="getVigenereIC()" style="width: 100px; height: 40px">Get IC</button>
             <textarea readonly id="vigenere_ic_output" cols="40" rows="6" style="resize: none;"></textarea>
         </div>
         <div style="border: 1px solid black">
@@ -236,8 +211,8 @@
         <h1 style="text-align: center; margin: 0 0 6px; text-decoration: underline">Useful Tools</h1>
         <div class="IC_div" style="border: 1px solid black">
             <h3 style="text-align: center; margin: 0 0 6px;">Index of Coincidence</h3>
-            <input type="text" placeholder="Amount of Segments" style="height: 34px">
-            <button style="width: 100px; height: 40px">Get IC</button>
+            <input id="anagram_ic_input" type="text" placeholder="Amount of Segments" style="height: 34px">
+            <button onclick="getAnagramIC()" style="width: 100px; height: 40px">Get IC</button>
             <textarea readonly id="anagram_ic_output" cols="40" rows="6" style="resize: none;"></textarea>
         </div>
         <div style="border: 1px solid black">
@@ -286,8 +261,8 @@
         <h1 style="text-align: center; margin: 0 0 6px; text-decoration: underline">Useful Tools</h1>
         <div class="IC_div" style="border: 1px solid black">
             <h3 style="text-align: center; margin: 0 0 6px;">Index of Coincidence</h3>
-            <input type="text" placeholder="Amount of Segments" style="height: 34px">
-            <button style="width: 100px; height: 40px">Get IC</button>
+            <input id="columnar_ic_input" type="text" placeholder="Amount of Segments" style="height: 34px">
+            <button onclick="getColumnarIC()" style="width: 100px; height: 40px">Get IC</button>
             <textarea readonly id="columnar_ic_output" cols="40" rows="6" style="resize: none;"></textarea>
         </div>
         <div style="border: 1px solid black">
@@ -310,5 +285,6 @@
 </div>
 <script src=cryptoWeb_caesar.js></script>
 <script src=cryptoweb_columnar.js></script>
+<script src=multiAlphaTools.js></script>
 </body>
 </html>
