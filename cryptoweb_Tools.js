@@ -499,3 +499,38 @@ function indexOfCoincidence(message){
     return output;
 
 }
+
+let factorArea = document.getElementById("factorArea");
+let textLength = document.getElementById("textLength");
+let anagram_input_factor_box = document.getElementById("anagram_input_box");
+
+function anagramFactor(){
+    let input = anagram_input_factor_box.value;
+    input = input.split(" ").join("");
+    length = input.length;
+    textLength.innerText = length;
+    calculate(length)
+}
+
+let columnarFactorArea = document.getElementById("columnarFactorArea");
+let columnarTextLength = document.getElementById("columnarTextLength");
+let columnar_input_factor_box = document.getElementById("columnar_input_box");
+
+function columnarFactor(){
+    let input = columnar_input_factor_box.value;
+    input = input.split(" ").join("");
+    length = input.length;
+    columnarTextLength.innerText = length;
+    calculate(length)
+}
+
+
+function calculate(num) {
+    var str = "0";
+    for (var i = 1; i <= num; i++) {
+        if (num % i == 0) {
+            str += ',' + i;
+        }
+    }
+    columnarFactorArea.innerHTML = str;
+}

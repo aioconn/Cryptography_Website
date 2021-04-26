@@ -231,16 +231,15 @@
                 <div>Graph Area</div>
             </div>
         </div>
-    </div>
-    <div class="advanced_tools" style="margin-bottom: 10px; margin-top: 10px;">
-        <h1 style="text-align: center; margin: 0 0 6px; text-decoration: underline">Advanced Tools</h1>
         <div class="IC_div" style="border: 1px solid black">
             <h3 style="text-align: center; margin: 0 0 6px;">Factoring Tool</h3>
             <div class="textlength_analysis" style="display: flex">
-                <button style="width: 100px; height: 37px">Factor</button>
+                <button onclick="anagramFactor()" style="width: 100px; height: 37px">Factor</button>
                 <textarea readonly id="textLength" cols="10" rows="1" style="resize: none; text-align: center; font-size: large; font-weight: bold">Text Length</textarea>
             </div>
-            <div style="height: 300px; width: 450px">Graph Area</div>
+            <div class="textlength_analysis" style="display: flex">
+                <textarea readonly id="factorArea" cols="60" rows="2" style="resize: none; text-align: center; font-size: large; font-weight: bold">Factor</textarea>
+            </div>
         </div>
     </div>
 </div>
@@ -279,6 +278,16 @@
                     <button>Triple</button>
                 </div>
                 <div>Graph Area</div>
+            </div>
+        </div>
+        <div class="IC_div" style="border: 1px solid black">
+            <h3 style="text-align: center; margin: 0 0 6px;">Factoring Tool</h3>
+            <div class="textlength_analysis" style="display: flex">
+                <button onclick="columnarFactor()" style="width: 100px; height: 37px">Factor</button>
+                <textarea readonly id="columnarTextLength" cols="10" rows="1" style="resize: none; text-align: center; font-size: large; font-weight: bold">Text Length</textarea>
+            </div>
+            <div class="textlength_analysis" style="display: flex">
+                <textarea readonly id="columnarFactorArea" cols="60" rows="2" style="resize: none; text-align: center; font-size: large; font-weight: bold">Factor</textarea>
             </div>
         </div>
     </div>
