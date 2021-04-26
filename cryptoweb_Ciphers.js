@@ -323,6 +323,22 @@ function columnarDecrypt(message, numColumns){
 /////////////////////////////////////////////////////////////////////
 
 
+function anaEncrypt(){
+    //get key
+    var keyStr = document.getElementById("anagramKey").value;
+    var key = JSON.parse(keyStr);
+
+    //get plaintext
+    let inputText = document.getElementById("anagram_input_box").value;
+    inputText = inputText.toLowerCase();
+    inputText = removeNonLowercase(inputText);
+
+    //encrypt
+    let enc = anagramEncrypt(inputText, key);
+    document.getElementById("anagram_output_box").value = enc;
+}
+
+
 function anagramEncrypt(message, keyArr){
 	
     var output = "";
@@ -347,6 +363,21 @@ function anagramEncrypt(message, keyArr){
     
     return output;
     
+}
+
+function anaDecrypt(){
+    //get key
+    var keyStr = document.getElementById("anagramKey").value;
+    var key = JSON.parse(keyStr);
+
+    //get plaintext
+    let inputText = document.getElementById("anagram_input_box").value;
+    inputText = inputText.toLowerCase();
+    inputText = removeNonLowercase(inputText);
+
+    //encrypt
+    let dec = anagramDecrypt(inputText, key);
+    document.getElementById("anagram_output_box").value = dec;
 }
 
 function anagramDecrypt(message, keyArr){
