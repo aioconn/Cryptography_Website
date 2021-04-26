@@ -8,6 +8,17 @@
     <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
     <script src=index.js></script>
     <script src=tools.js></script>
+
+    <!-- Import RGraphs for graphing functionality -->
+	<script src="RGraph/libraries/RGraph.common.core.js"></script>
+	<script src="RGraph/libraries/RGraph.common.tooltips.js"></script>
+	<script src="RGraph/libraries/RGraph.common.dynamic.js"></script>
+	<script src="RGraph/libraries/RGraph.bar.js"></script>
+	
+	<script src="RGraph/libraries/RGraph.svg.bar.js"></script>
+	<script src="RGraph/libraries/RGraph.svg.common.core.js"></script>
+	<script src="RGraph/libraries/RGraph.svg.common.tooltips.js"></script>
+
 </head>
 <body style="background-color: #CBD6C2">
 <div id="name_div">
@@ -52,11 +63,11 @@
                 <div style="margin: 6px 6px 6px 6px">
                     <textarea readonly id="caesar_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
                     <br>
-                    <button>Single</button>
-                    <button>Double</button>
-                    <button>Triple</button>
+                    <button id="btn-freq-single">Single</button>
+                    <button id="btn-freq-double">Double</button>
+                    <button id="btn-freq-triple">Triple</button>
                 </div>
-                <div>Graph Area</div>
+                <div id="frequency-module">Graph Area</div>
             </div>
         </div>
     </div>
@@ -111,11 +122,11 @@
                 <div style="margin: 6px 6px 6px 6px">
                     <textarea readonly id="keyword_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
                     <br>
-                    <button>Single</button>
-                    <button>Double</button>
-                    <button>Triple</button>
+                    <button id="btn-freq-single">Single</button>
+                    <button id="btn-freq-double">Double</button>
+                    <button id="btn-freq-triple">Triple</button>
                 </div>
-                <div>Graph Area</div>
+                <div id="frequency-module">Graph Area</div>
             </div>
         </div>
     </div>
@@ -150,11 +161,11 @@
                 <div style="margin: 6px 6px 6px 6px">
                     <textarea readonly id="vigenere_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
                     <br>
-                    <button>Single</button>
-                    <button>Double</button>
-                    <button>Triple</button>
+                    <button id="btn-freq-single">Single</button>
+                    <button id="btn-freq-double">Double</button>
+                    <button id="btn-freq-triple">Triple</button>
                 </div>
-                <div>Graph Area</div>
+                <div id="frequency-module">Graph Area</div>
             </div>
         </div>
         <div class="IC_div">
@@ -222,13 +233,13 @@
             </div>
             <div style="display: flex">
                 <div style="margin: 6px 6px 6px 6px">
-                    <textarea readonly id="anagram_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
+                    <textarea readonly id="vigenere_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
                     <br>
-                    <button>Single</button>
-                    <button>Double</button>
-                    <button>Triple</button>
+                    <button id="btn-freq-single">Single</button>
+                    <button id="btn-freq-double">Double</button>
+                    <button id="btn-freq-triple">Triple</button>
                 </div>
-                <div>Graph Area</div>
+                <div id="frequency-module">Graph Area</div>
             </div>
         </div>
     </div>
@@ -272,18 +283,19 @@
             </div>
             <div style="display: flex">
                 <div style="margin: 6px 6px 6px 6px">
-                    <textarea readonly id="columnar_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
+                    <textarea readonly id="vigenere_FA_output" cols="20" rows="20" style="resize: none;"></textarea>
                     <br>
-                    <button>Single</button>
-                    <button>Double</button>
-                    <button>Triple</button>
+                    <button id="btn-freq-single">Single</button>
+                    <button id="btn-freq-double">Double</button>
+                    <button id="btn-freq-triple">Triple</button>
                 </div>
-                <div>Graph Area</div>
+                <div id="frequency-module">Graph Area</div>
             </div>
         </div>
     </div>
 </div>
-<script src=cryptoweb_Ciphers.js></script>
-<script src=cryptoweb_Tools.js></script>
+<script src=cryptoWeb_caesar.js></script>
+<script src=cryptoweb_columnar.js></script>
+<script src=multiAlphaTools.js></script>
 </body>
 </html>
