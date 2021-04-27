@@ -7,6 +7,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
     <script src=index.js></script>
+    
+    <!-- Import RGraphs for graphing functionality -->
+	<script src="RGraph/libraries/RGraph.common.core.js"></script>
+	<script src="RGraph/libraries/RGraph.common.tooltips.js"></script>
+	<script src="RGraph/libraries/RGraph.common.dynamic.js"></script>
+	<script src="RGraph/libraries/RGraph.bar.js"></script>
+	
+	<script src="RGraph/libraries/RGraph.svg.bar.js"></script>
+	<script src="RGraph/libraries/RGraph.svg.common.core.js"></script>
+	<script src="RGraph/libraries/RGraph.svg.common.tooltips.js"></script>
 
 </head>
 <body style="background-color: #CBD6C2">
@@ -46,7 +56,7 @@
         <div style="border: 1px solid black">
             <h3 style="text-align: center; margin: 0 0 6px;">Frequency Analysis</h3>
             <div style="display: flex; justify-content: center">
-                <button style="width: 70px; height: 30px; font-weight: bold; font-size: medium;">Run</button>
+                <button id="btn-frequency-module" style="width: 70px; height: 30px; font-weight: bold; font-size: medium;">Run</button>
             </div>
             <div style="display: flex">
                 <div style="margin: 6px 6px 6px 6px">
@@ -56,7 +66,7 @@
                     <button id="btn-freq-double">Double</button>
                     <button id="btn-freq-triple">Triple</button>
                 </div>
-                <div id="frequency-module">Graph Area</div>
+                <div id="chart-container">Graph Area</div>
             </div>
         </div>
     </div>
