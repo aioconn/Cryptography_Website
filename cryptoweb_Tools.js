@@ -567,3 +567,268 @@ function calculate(num, name) {
     }
     name.innerHTML = str;
 }
+
+//Low Frequency Analysis
+let lowFreqReport = document.getElementById("LF_left_output");
+let possKeywords = document.getElementById("LF_right_output");
+
+function LFA(){
+    //get key length
+    var keyLength = document.getElementById("LFA_input").value;
+    keyLength = parseInt(keyLength, 10);
+
+    //get ciphertext
+    var inputText = document.getElementById("vigenere_input_box").value;
+    inputText = inputText.toLowerCase();
+    inputText = removeNonLowercase(inputText);
+
+    //get segments
+    var segments = segmentMessage(inputText, keyLength);
+
+    //get table element and initialize header
+    var table = lowFreqReport;
+    table.innerHTML = "";
+    var tableHeader = document.createElement("tr");
+
+    var colShift = document.createElement("td");
+    var colShiftText = document.createTextNode("Key Letter");
+    colShift.appendChild(colShiftText);
+    tableHeader.appendChild(colShift);
+
+    for(var i = 1; i <= segments.length; i++){
+        var col = document.createElement("td");
+        var colText = document.createTextNode("Segment [" + i + "]");
+        col.appendChild(colText);
+        tableHeader.appendChild(col);
+    }
+
+    table.appendChild(tableHeader);
+
+    //initialize list to hold all sums
+    var segmentSums = new Array(segments.length);
+    for(var i = 0; i < segmentSums.length; i++){
+        segmentSums[i] = [];
+    }
+
+    //for each shift value,
+    for(var i = 0; i < 26; i++){
+
+        //print the stats to the table
+        var row = document.createElement("tr");
+
+        //shift amount
+        var col1 = document.createElement("td");
+        var col1Text = document.createTextNode(String.fromCharCode(i + 97));
+        col1.appendChild(col1Text);
+
+        row.appendChild(col1);
+
+
+        //decrypt all segments with value
+        //for each result:
+        for(var j = 0; j < segments.length; j++){
+
+            //shift letters
+            var shifted = caesarShiftDecrypt(segments[j], i);
+
+            //get frequency analysis
+            var freq = frequencyAnalysis(shifted, 1);
+
+            //calculate proprotion of low frequency letters
+            var sum = 0.0;
+            for(var k = 0; k < freq.length; k++){
+
+                if(freq[k].segment == "j" ||
+                    freq[k].segment == "k" ||
+                    freq[k].segment == "q" ||
+                    freq[k].segment == "x" ||
+                    freq[k].segment == "z"){
+
+                    sum += freq[j].proportion;
+
+                }
+
+            }//end for
+
+            //add sum to list
+            segmentSums[j].push({proportion:sum, letter:String.fromCharCode(i + 97)});
+
+            //print segments
+            var freqElement = document.createElement("td");
+            var freqText = document.createTextNode(sum.toFixed(3));
+            freqElement.appendChild(freqText);
+            row.appendChild(freqElement);
+
+        }
+
+        table.appendChild(row);
+
+    }
+
+    //get values for possible keywords
+    sortSegSums(segmentSums);
+
+    //get first 3 values from each
+    var charsets = [];
+    for(var i = 0; i < segmentSums.length; i++){
+
+        var arr = [];
+        for(var j = 0; j < 3; j++){
+            arr.push(segmentSums[i][j].letter);
+        }
+        charsets.push(arr);
+
+    }
+
+    //construct the first word
+    var testWord = "";
+    for(var i = 0; i < charsets.length; i++){
+        testWord += charsets[i][0];
+    }
+
+
+    //construct list of all possible words
+    var allWords = [testWord];
+
+    if(charsets.length < 10){
+
+        var keepGoing = true;
+        while(keepGoing){
+            testWord = getPermutation(charsets, testWord);
+
+            if(testWord == null || testWord == undefined){
+                keepGoing = false;
+            }else{
+                allWords.push(testWord);
+            }
+        }
+
+    }
+
+
+    //construct output
+    var keywords = "";
+
+    for(var i = 0; i < allWords.length; i++){
+        keywords += allWords[i] + "\n";
+    }
+
+    possKeywords.value = keywords;
+
+}
+
+function frequencyAnalysis(message, segmentLength){
+
+    var output = [];
+
+    //get segments
+    for(var i = 0; i <= message.length - segmentLength; i++){
+
+        //extract segment
+        var seg = message.substr(i, segmentLength);
+
+        //find segment in list (if possible)
+        var index = -1
+        for(var j = 0; j < output.length && index == -1; j++){
+            if(output[j].segment == seg){
+                index = j;
+            }
+        }
+
+        //if segment is in the list, increment its count
+        if(index != -1){
+            output[index].count++;
+        }else{
+            output.push({
+                segment: seg,
+                count: 1,
+                proportion: 0
+            });
+        }
+
+    }//end main for loop
+
+    //calculate proportions
+    var totalSeg = message.length - segmentLength + 1;
+
+    for(var i = 0; i < output.length; i++){
+
+        output[i].proportion = 0.0 + output[i].count / totalSeg;
+
+    }
+
+    return output;
+}
+
+
+function sortSegSums(segmentSums){
+
+
+    //sort
+    for(var s = 0; s < segmentSums.length; s++){
+
+        var segment = segmentSums[s];
+        var i = 1;
+        while(i < segment.length){
+            var j = i;
+            while(j > 0 && segment[j - 1].proportion > segment[j].proportion){
+                //swap
+                var temp = segment[j];
+                segment[j] = segment[j - 1];
+                segment[j - 1] = temp;
+                j = j - 1;
+            }
+            i = i + 1;
+        }
+
+    }
+
+}
+
+
+
+function getPermutation(charsets, curWord){
+
+    var keepGoing = true;
+    var index = 0;
+    while(keepGoing){
+
+        if(index >= charsets.length){
+            keepGoing = false;
+            return null;
+        }
+
+        //determine if we need to shift over a letter
+        if(charsets[index].indexOf(curWord.charAt(index)) == (charsets[index].length - 1)){
+
+            //increment the letter, then push onto next letter
+            var newInd = 0;
+            var newString = "";
+
+            newString += curWord.substr(0, index);
+            newString += charsets[index][newInd];
+            newString += curWord.substr(index + 1, (curWord.length - newString.length));
+
+            curWord = newString;
+
+            index++;
+            //console.log("SHIFT TO NEXT LETTER " + index);
+        }else{
+
+            //replace the character and return it
+            var newInd = charsets[index].indexOf(curWord.substr(index, 1)) + 1;
+            var newString = "";
+
+            newString += curWord.substr(0, index);
+            newString += charsets[index][newInd];
+            newString += curWord.substr(index + 1, (curWord.length - newString.length));
+
+            keepGoing = false;
+            return (newString);
+
+        }
+
+    }
+
+}
+

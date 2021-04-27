@@ -7,8 +7,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
     <script src=index.js></script>
-    <script src=tools.js></script>
-
 
 </head>
 <body style="background-color: #CBD6C2">
@@ -162,12 +160,16 @@
         <div class="IC_div">
             <h3 style="text-align: center; margin: 30px 0 0 6px;">Low Frequency Analysis</h3>
             <div class="LFAnalysis" style="display: flex">
-                <input type="text" placeholder="Key Length" style="height: 34px">
-                <button style="width: 100px; height: 40px">Run LF Analysis</button>
+                <input id="LFA_input" type="text" placeholder="Key Length" style="height: 34px">
+                <button onclick="LFA()" style="width: 100px; height: 40px">Run LF Analysis</button>
             </div>
-            <div style="position: absolute; left: 27%">
-                <textarea readonly id="LF_left_output" cols="100" rows="40" style="resize: none;"></textarea>
-                <textarea readonly id="LF_right_output" cols="15" rows="40" style="resize: none;"></textarea>
+            <div style="display: flex; justify-content: space-evenly">
+                <div style="display: flex; background-color: white;">
+                    <table id="LF_left_output"  style="resize: none; table-layout: fixed; width: 600px"></table>
+                </div>
+                <div>
+                    <textarea readonly id="LF_right_output" cols="15" rows="40" style="resize: none;"></textarea>
+                </div>
             </div>
         </div>
     </div>
