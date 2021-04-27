@@ -960,8 +960,48 @@ function updateGraphSVG(){
 
 //calculate frequencies
 singleFreqBtn = document.getElementById("btn-freq-single");
+doubleFreqBtn = document.getElementById("btn-freq-double");
+tripleFreqBtn = document.getElementById("btn-freq-triple");
+
 
 singleFreqBtn.addEventListener("click", function(){
+	
+	//sanitize input
+	let ciphertext = document.getElementById("caesar_input_box").value;
+	ciphertext = ciphertext.toLowerCase();
+	ciphertext = removeNonLowercase(ciphertext);
+	
+	//get frequencies
+	let frequencies = frequencyAnalysis(ciphertext, 1);
+	frequencies = sortFrequenciesProportion(frequencies);
+	
+	//display frequencies
+	let boxText = "";
+	for(let i = 0; i < frequencies.length; i++){
+		
+		let line = "";
+		line += frequencies[i].segment;
+		line += ":\t";
+		line += frequencies[i].count;
+		line += "\t";
+		line += frequencies[i].proportion;
+		
+		boxText += line;
+		
+		if(i < frequencies.length - 1){
+			boxText += "\n";
+		}
+		
+	}
+	
+	let box = document.getElementById("caesar_FA_output");
+	box.value = boxText;
+	
+	updateGraphSVG();
+	
+});
+
+doubleFreqBtn.addEventListener("click", function(){
 	
 	//sanitize input
 	var ciphertext = document.getElementById("caesar_input_box").value;
@@ -969,7 +1009,44 @@ singleFreqBtn.addEventListener("click", function(){
 	ciphertext = removeNonLowercase(ciphertext);
 	
 	//get frequencies
-	var frequencies = frequencyAnalysis(ciphertext, 1);
+	var frequencies = frequencyAnalysis(ciphertext, 2);
+	frequencies = sortFrequenciesProportion(frequencies);
+	
+	//display frequencies
+	var boxText = "";
+	for(var i = 0; i < frequencies.length; i++){
+		
+		var line = "";
+		line += frequencies[i].segment;
+		line += ":\t";
+		line += frequencies[i].count;
+		line += "\t";
+		line += frequencies[i].proportion;
+		
+		boxText += line;
+		
+		if(i < frequencies.length - 1){
+			boxText += "\n";
+		}
+		
+	}
+	
+	var box = document.getElementById("caesar_FA_output");
+	box.value = boxText;
+	
+	updateGraphSVG();
+	
+});
+
+tripleFreqBtn.addEventListener("click", function(){
+	
+	//sanitize input
+	var ciphertext = document.getElementById("caesar_input_box").value;
+	ciphertext = ciphertext.toLowerCase();
+	ciphertext = removeNonLowercase(ciphertext);
+	
+	//get frequencies
+	var frequencies = frequencyAnalysis(ciphertext, 3);
 	frequencies = sortFrequenciesProportion(frequencies);
 	
 	//display frequencies
