@@ -832,6 +832,21 @@ function getPermutation(charsets, curWord){
 
 }
 
+//display module
+let freqModuleBtn = document.getElementById("btn-frequency-module");
+freqModuleBtn.addEventListener("click", function(){
+	
+	freqModule = document.getElementById("chart-container");
+	if(freqModule.style.display != "block"){
+		freqModule.style.display = "block";
+	}else{
+		freqModule.style.display = "none";
+	}
+	
+	updateGraphSVG();
+	
+});
+
 //calculate single frequencies and build graph
 
 function updateGraph(){
