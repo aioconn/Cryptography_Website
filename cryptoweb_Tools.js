@@ -1074,3 +1074,158 @@ tripleFreqBtn.addEventListener("click", function(){
 	updateGraphSVG();
 	
 });
+
+/////////////////////////////////////////////////////////////////
+//calculate single frequencies and build graph
+
+function updateGraph(){
+	
+	//sanitize input
+	let ciphertext = document.getElementById("keyword_input_box").value;
+	ciphertext = ciphertext.toLowerCase();
+	ciphertext = removeNonLowercase(ciphertext);
+	
+	//get frequencies
+	let frequencies = frequencyAnalysis(ciphertext, 1);
+	//frequencies = sortFrequenciesAlpha(frequencies);
+
+	let proportions = [];
+	let labels = [];
+
+	//(initialize lists)
+	for(let i = 0; i < 26; i++){
+		proportions.push(0);
+		labels.push(String.fromCharCode(i + 97));
+	}
+	
+	//(fill proportions)
+	for(let i = 0; i < frequencies.length; i++){
+		let index = frequencies[i].segment.charCodeAt(0) - 97;
+		proportions[index] = frequencies[i].proportion * 100;
+	}
+	
+	//clear canvas
+	let cnv = document.getElementById("chart-container");
+	let ctx = cnv.getContext("2d");
+	ctx.fillStyle = "#FFFFFF";
+	ctx.fillRect(0,0, cnv.height, cnv.width);
+	
+	let bar = new RGraph.Bar({
+        id: 'chart-container',
+        data: proportions,
+        options: {
+            labels: labels,
+			//textAccessible: false,
+            unitsPost: '%',
+            shadow: false,
+			tooltips: proportions,
+			highlightFill: "rgba(0,0,0,0.5)",
+            colors: ['red', 'pink'],
+            strokestyle: 'rgba(0,0,0,0)',
+            textSize: 10,
+            title: 'Single Letter Frequency Analysis',
+            numyticks: 8,
+            gutterLeft: 30,
+			gutterTop: 40,
+			crosshairs: true,
+			hmargin: 0,
+			zoomFactor: 0.001
+        }                
+    }).draw();
+	
+}
+
+
+function updateGraphSVG(){
+	
+	//sanitize input
+	let ciphertext = document.getElementById("keyword_input_box").value;
+	ciphertext = ciphertext.toLowerCase();
+	ciphertext = removeNonLowercase(ciphertext);
+	
+	//get frequencies
+	let frequencies = frequencyAnalysis(ciphertext, 1);
+	//frequencies = sortFrequenciesAlpha(frequencies);
+
+	let proportions = [];
+	let labels = [];
+
+	//(initialize lists)
+	for(let i = 0; i < 26; i++){
+		proportions.push(0);
+		labels.push(String.fromCharCode(i + 97));
+	}
+	
+	//(fill proportions)
+	for(let i = 0; i < frequencies.length; i++){
+		let index = frequencies[i].segment.charCodeAt(0) - 97;
+		proportions[index] = frequencies[i].proportion * 100;
+	}
+	
+	//clear svg
+	$("svg").empty();
+	
+	
+	let bar = new RGraph.SVG.Bar({
+		id: 'chart-container',
+		data: proportions,
+		options: {
+			hmargin: 1,
+			xaxisLabels: labels,
+			tooltips: proportions,
+			title: 'Single Character Frequency Analysis',
+			colors: ['red'],
+			shadow: true,
+			shadowOpacity: 0.5,
+			
+			xaxisLabelsOffsetx: 0,
+			xaxisLabelsOffsety: 0,
+			yaxisLabelsOffsetx: 0,
+			yaxisLabelsOffsety: 0
+		}
+	}).draw();
+	
+}
+
+//calculate frequencies
+singleFreqBtn = document.getElementById("btn-freq-single");
+doubleFreqBtn = document.getElementById("btn-freq-double");
+tripleFreqBtn = document.getElementById("btn-freq-triple");
+
+
+singleFreqBtn.addEventListener("click", function(){
+	
+	//sanitize input
+	let ciphertext = document.getElementById("keyword_input_box").value;
+	ciphertext = ciphertext.toLowerCase();
+	ciphertext = removeNonLowercase(ciphertext);
+	
+	//get frequencies
+	let frequencies = frequencyAnalysis(ciphertext, 1);
+	frequencies = sortFrequenciesProportion(frequencies);
+	
+	//display frequencies
+	let boxText = "";
+	for(let i = 0; i < frequencies.length; i++){
+		
+		let line = "";
+		line += frequencies[i].segment;
+		line += ":\t";
+		line += frequencies[i].count;
+		line += "\t";
+		line += frequencies[i].proportion;
+		
+		boxText += line;
+		
+		if(i < frequencies.length - 1){
+			boxText += "\n";
+		}
+		
+	}
+	
+	let box = document.getElementById("keyword_FA_output");
+	box.value = boxText;
+	
+	updateGraphSVG();
+	
+});
