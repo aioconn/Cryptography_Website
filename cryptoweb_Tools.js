@@ -283,6 +283,39 @@ function sortFactorList(factors){
 
 }//end sortFactors
 
+function VigenereSegment() {
+
+    //get input values
+    var numSegs = document.getElementById("segment_input").value;
+    numSegs = parseInt(numSegs, 10);
+    if (numSegs <= 0) {
+        numSegs = 1;
+    }
+
+    //get ciphertext
+    var inputText = document.getElementById("vigenere_input_box").value;
+    inputText = inputText.toLowerCase();
+    inputText = removeNonLowercase(inputText);
+
+    //calculate segments
+    var segments = segmentMessage(inputText, numSegs);
+
+    //print segments
+    var box = document.getElementById("segment_output");
+    var output = "";
+
+    for (var i = 0; i < segments.length; i++) {
+
+        var line = "Segment [" + (i + 1) + "]   ";
+        line += segments[i];
+        line += "\n\n";
+
+        output += line;
+
+    }
+    box.value = output;
+}
+
 function segmentMessage(msg, keyLength){
 
     var output = [];

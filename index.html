@@ -187,8 +187,8 @@
         <div class="IC_div" style="border: 1px solid black">
             <h3 style="text-align: center; margin: 0 0 6px;">Segment Analysis</h3>
             <div class="segmentAnalysis" style="display: flex">
-                <input type="text" placeholder="Number of Segments" style="height: 34px">
-                <button style="width: 100px; height: 40px">Run Segments</button>
+                <input id="segment_input" type="text" placeholder="Number of Segments" style="height: 34px">
+                <button onclick="VigenereSegment()" style="width: 100px; height: 40px">Run Segments</button>
             </div>
             <div>
                 <textarea readonly id="segment_output" cols="64" rows="15" style="resize: none;"></textarea>
