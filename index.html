@@ -128,9 +128,9 @@
         <h1 style="text-align: center; margin: 0 0 6px;">Output Area</h1>
         <textarea readonly id="vigenere_output_box" cols="60" rows="10" placeholder="Output" style="resize: none; height: 250px"></textarea>
         <div id="vigenere_encrypt_decrypt" style="display: flex; justify-content: center;">
-            <button >Encrypt</button>
-            <input type="text" placeholder="Vigenere Key" style="padding: 0; text-align: center; font-size: medium; height: 37px">
-            <button >Decrypt</button>
+            <button onclick="VEncrypt()">Encrypt</button>
+            <input id='vigenere_key' type="text" placeholder="Vigenere Key" style="padding: 0; text-align: center; font-size: medium; height: 37px">
+            <button onclick="VDecrypt()">Decrypt</button>
         </div>
     </div>
     <div class="basic_tools" style="margin-bottom: 10px; margin-top: 10px;">

@@ -529,6 +529,45 @@ function columnarAnagramDecrypt(message, numColumns, keyArr){
 //////////////////  Vigenere FUNCTIONS  ///////////////////
 /////////////////////////////////////////////////////////////////////
 
+
+function VEncrypt(){
+
+    //get key
+    var key = document.getElementById("vigenere_key").value;
+
+    //get plaintext
+    var inputText = document.getElementById("vigenere_input_box").value;
+    inputText = inputText.toLowerCase();
+    inputText = removeNonLowercase(inputText);
+
+    //encrypt
+    var enc = vigenereEncrypt(inputText, key);
+
+    //paste to cipher section
+    document.getElementById("vigenere_output_box").value = enc;
+
+}
+
+
+function VDecrypt(){
+
+    //get key
+    var key = document.getElementById("vigenere_key").value;
+
+    //get plaintext
+    var inputText = document.getElementById("vigenere_input_box").value;
+    inputText = inputText.toLowerCase();
+    inputText = removeNonLowercase(inputText);
+
+    //decrypt
+    var dec = vigenereDecrypt(inputText, key);
+
+    //paste to plain section
+    document.getElementById("vigenere_output_box").value = dec;
+
+}
+
+
 function vigenereEncrypt(plaintext, key){
 
     plaintext = plaintext.toLowerCase();
